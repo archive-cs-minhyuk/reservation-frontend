@@ -1,7 +1,7 @@
-import { authService, firebaseInstance } from "fbase";
+import { authService } from "fbase";
 import React, { useState } from "react";
 
-const Auth = () => {
+const AuthRequest = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,20 +18,10 @@ const Auth = () => {
   const onSubmit = async (event) => {
     event.preventDefault();
     try {
-      await authService.signInWithEmailAndPassword(email, password);
+      await authService.createUserWithEmailAndPassword(email, password);
     } catch (error) {
-      setError(error.message); //on screen: error message
+      setError(error.message);
     }
-  };
-  const onSocialClick = async (event) => {
-    const {
-      target: { name },
-    } = event;
-    let provider; //if other than google, add else if
-    if (name === "google") {
-      provider = new firebaseInstance.auth.GoogleAuthProvider();
-    }
-    await authService.signInWithPopup(provider);
   };
   return (
     <div>
@@ -52,15 +42,11 @@ const Auth = () => {
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value="Sign In" />
+        <input type="submit" value="계정 생성하기" />
       </form>
-      <div>
-        <button name="google" onClick={onSocialClick}>
-          Continue with Google
-        </button>
-        <h4>{error}</h4>
-      </div>
+      <h4>{error}</h4>
     </div>
   );
 };
-export default Auth;
+
+export default AuthRequest;
