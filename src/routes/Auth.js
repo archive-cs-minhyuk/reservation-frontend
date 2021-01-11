@@ -1,10 +1,12 @@
 import { authService, firebaseInstance } from "fbase";
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const history = useHistory();
   const onChange = (event) => {
     const {
       target: { name, value },
@@ -39,7 +41,7 @@ const Auth = () => {
         <input
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="이메일을 입력하세요"
           required
           value={email}
           onChange={onChange}
@@ -47,13 +49,16 @@ const Auth = () => {
         <input
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder="비밀번호를 입력하세요"
           required
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value="Sign In" />
+        <input type="submit" value="로그인" />
       </form>
+      <div>
+        <button onClick={() => history.push("/authRequest")}>회원가입</button>
+      </div>
       <div>
         <button name="google" onClick={onSocialClick}>
           Continue with Google

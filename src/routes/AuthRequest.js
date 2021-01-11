@@ -29,7 +29,7 @@ const AuthRequest = () => {
         <input
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="이메일을 입력하세요"
           required
           value={email}
           onChange={onChange}
@@ -37,7 +37,7 @@ const AuthRequest = () => {
         <input
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder="비밀번호를 입력하세요"
           required
           value={password}
           onChange={onChange}
