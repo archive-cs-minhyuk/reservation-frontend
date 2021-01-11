@@ -1,5 +1,6 @@
 import { authService } from "fbase";
 import React, { useState } from "react";
+import styles from "./AuthRequest.module.css";
 
 const AuthRequest = () => {
   const [email, setEmail] = useState("");
@@ -28,11 +29,12 @@ const AuthRequest = () => {
       await authService.createUserWithEmailAndPassword(email, password);
     } catch (error) {
       setError(error.message);
+      alert(error);
     }
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className={styles.authContainer}>
+      <form onSubmit={onSubmit} className={styles.container}>
         <input
           name="email"
           type="email"
@@ -40,6 +42,7 @@ const AuthRequest = () => {
           required
           value={email}
           onChange={onChange}
+          className={styles.Input}
         />
         <input
           name="password"
@@ -48,6 +51,7 @@ const AuthRequest = () => {
           required
           value={password}
           onChange={onChange}
+          className={styles.Input}
         />
         <input
           name="passwordCheck"
@@ -55,8 +59,13 @@ const AuthRequest = () => {
           placeholder="비밀번호를 한 번 더 입력하세요"
           value={pwdCheck}
           onChange={onChange}
+          className={styles.Input}
         />
-        <input type="submit" value="계정 생성하기" />
+        <input
+          type="submit"
+          value="계정 생성하기"
+          className={styles.auth_button}
+        />
       </form>
       <h4>{error}</h4>
     </div>

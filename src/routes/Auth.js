@@ -1,5 +1,6 @@
 import { authService, firebaseInstance } from "fbase";
 import React, { useState } from "react";
+import styles from "./Auth.module.css";
 import { useHistory } from "react-router-dom";
 
 const Auth = () => {
@@ -23,6 +24,7 @@ const Auth = () => {
       await authService.signInWithEmailAndPassword(email, password);
     } catch (error) {
       setError(error.message); //on screen: error message
+      alert(error);
     }
   };
   const onSocialClick = async (event) => {
@@ -36,13 +38,14 @@ const Auth = () => {
     await authService.signInWithPopup(provider);
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className={styles.authContainer}>
+      <form onSubmit={onSubmit} className={styles.container}>
         <input
           name="email"
           type="email"
           placeholder="이메일을 입력하세요"
           required
+          className={styles.authInput}
           value={email}
           onChange={onChange}
         />
@@ -51,19 +54,26 @@ const Auth = () => {
           type="password"
           placeholder="비밀번호를 입력하세요"
           required
+          className={styles.authInput}
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value="로그인" />
+        <input type="submit" value="로그인" className={styles.authSubmit} />
       </form>
-      <div>
-        <button onClick={() => history.push("/authRequest")}>회원가입</button>
-      </div>
-      <div>
-        <button name="google" onClick={onSocialClick}>
-          Continue with Google
+      <div className={styles.buttonContainer}>
+        <button
+          onClick={() => history.push("/authRequest")}
+          className={styles.auth_button}
+        >
+          회원가입
         </button>
-        <h4>{error}</h4>
+        <button
+          name="google"
+          onClick={onSocialClick}
+          className={styles.google_button}
+        >
+          구글로 로그인
+        </button>
       </div>
     </div>
   );

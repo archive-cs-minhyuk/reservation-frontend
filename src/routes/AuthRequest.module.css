@@ -1,0 +1,26 @@
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+
+.Input {
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.auth_button {
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+}
