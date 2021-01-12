@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/auth"; //for log-in
+import "firebase/firestore"; //for user-info(일단)
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -15,3 +16,4 @@ firebase.initializeApp(firebaseConfig);
 export const firebaseInstance = firebase; //for google login
 
 export const authService = firebase.auth();
+export const dbService = firebase.firestore();

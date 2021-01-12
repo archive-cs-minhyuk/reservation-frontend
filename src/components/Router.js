@@ -11,20 +11,28 @@ import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import AfterNavigation from "./AfterNavigation";
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
     <Router>
       {isLoggedIn && <AfterNavigation />}
       {isLoggedIn ? (
         <Switch>
           <Route path="/home" component={Home} exact />
-          <Route path="/profile" component={Profile} exact />
+          <Route
+            path="/profile"
+            component={() => <Profile userObj={userObj} />}
+            exact
+          />
           <Redirect from="*" to="/home" />
         </Switch>
       ) : (
         <Switch>
           <Route path="/login" component={Auth} exact />
-          <Route path="/authRequest" component={AuthRequest} exact />
+          <Route
+            path="/authRequest"
+            component={() => <AuthRequest userObj={userObj} />}
+            exact
+          />
           <Redirect from="*" to="/login" />
         </Switch>
       )}
