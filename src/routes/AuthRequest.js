@@ -1,4 +1,4 @@
-import { authService } from "fbase";
+import { authService, firebaseInstance } from "fbase";
 import React, { useState } from "react";
 import { inputPhoneNumber } from "../util";
 import styles from "./AuthRequest.module.css";
@@ -27,19 +27,53 @@ const AuthRequest = ({ userObj }) => {
       setPhone(temp);
     }
   };
+  const updateProfilePhoneNumber = async ({ createdUser }) => {
+    var appVerifier = new firebaseInstance.auth.RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+      }
+    );
+    let phoneCredential;
+    var provider = new firebaseInstance.auth.PhoneAuthProvider();
+    await provider
+      .verifyPhoneNumber("+82".concat(phone), appVerifier)
+      .then(function (verificationId) {
+        var verificationCode = window.prompt(
+          "Please enter the verification " +
+            "code that was sent to your mobile device."
+        );
+        phoneCredential = firebaseInstance.auth.PhoneAuthProvider.credential(
+          verificationId,
+          verificationCode
+        );
+        createdUser.user.updatePhoneNumber(phoneCredential);
+      })
+      .then((result) => {
+        // Phone credential now linked to current user.
+        // User now can sign in with new phone upon logging out.
+        console.log(result);
+      })
+      .catch((error) => {
+        // Error occurred.
+        console.log(error);
+      });
+  };
+
   const onSubmit = async (event) => {
     event.preventDefault();
     if (password !== pwdCheck) {
       alert("비밀번호가 일치하지 않습니다.");
       return;
     }
+
     let createdUser;
     try {
       createdUser = await authService.createUserWithEmailAndPassword(
         email,
         password
       );
-      createdUser.user
+      await createdUser.user
         .updateProfile({
           displayName: name,
           photoURL: null,
@@ -48,6 +82,7 @@ const AuthRequest = ({ userObj }) => {
           var displayName = createdUser.displayName;
           var photoURL = createdUser.photoURL;
         });
+      updateProfilePhoneNumber(createdUser);
     } catch (error) {
       setError(error.message);
       alert(error);
@@ -101,11 +136,10 @@ const AuthRequest = ({ userObj }) => {
         />
         <input
           type="submit"
-          value="계정 생성하기"
+          value="인증번호 받기"
           className={styles.auth_button}
         />
       </form>
-      <h4>{error}</h4>
     </div>
   );
 };
