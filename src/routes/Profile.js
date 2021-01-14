@@ -8,6 +8,14 @@ const Profile = ({ userObj }) => {
     authService.signOut();
     history.push("/");
   };
+  const phoneNumber = () => {
+    if (userObj.photoURL.slice(0, 3) !== "010") {
+      //google 로그인 거르기 위한 방법... 나중에 안되면 고칠것
+      return "-";
+    } else {
+      return userObj.photoURL;
+    }
+  };
   return (
     <>
       <ul>
@@ -21,7 +29,7 @@ const Profile = ({ userObj }) => {
         </li>
         <li>
           <h5>연락처</h5>
-          <span>{userObj.photoURL}</span>
+          <span>{phoneNumber()}</span>
         </li>
         <li>
           <h5>가입 일자</h5>

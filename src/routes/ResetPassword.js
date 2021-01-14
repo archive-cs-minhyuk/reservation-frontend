@@ -1,5 +1,6 @@
 import { authService } from "fbase";
 import React, { useState } from "react";
+import styles from "./ResetPassword.module.css";
 
 const ResetPassword = () => {
   const [email, setEmail] = useState("");
@@ -28,8 +29,8 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div>
-      <form onSubmit={onSubmit}>
+    <div className={styles.authContainer}>
+      <form onSubmit={onSubmit} className={styles.container}>
         <input
           name="email"
           type="email"
@@ -37,8 +38,13 @@ const ResetPassword = () => {
           requir
           value={email}
           onChange={onChange}
+          className={styles.authInput}
         />
-        <input type="submit" value="비밀번호 재설정 메일 보내기" />
+        <input
+          type="submit"
+          value="비밀번호 재설정 메일 보내기"
+          className={styles.authSubmit}
+        />
       </form>
     </div>
   );
