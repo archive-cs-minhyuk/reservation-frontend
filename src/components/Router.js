@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import AuthRequest from "routes/AuthRequest";
 import Profile from "routes/Profile";
+import ResetPassword from "routes/ResetPassword";
 import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import AfterNavigation from "./AfterNavigation";
@@ -31,6 +32,11 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
           <Route
             path="/authRequest"
             component={() => <AuthRequest userObj={userObj} />}
+            exact
+          />
+          <Route
+            path="/resetPassword"
+            component={() => <ResetPassword />}
             exact
           />
           <Redirect from="*" to="/login" />

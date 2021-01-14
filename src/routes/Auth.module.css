@@ -37,7 +37,7 @@
   margin: 0 auto;
 }
 
-.auth_button {
+.google_button {
   width: 100%;
   text-align: center;
   padding: 2px;
@@ -45,9 +45,18 @@
   margin-bottom: 10px;
 }
 
-.google_button {
+.authrequest {
   width: 100%;
   text-align: center;
   padding: 2px;
   margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.forgotpassword {
+  width: 100%;
+  text-align: center;
+  padding: 2px;
+  margin: 0 auto;
+  margin-bottom: 10px;
 }

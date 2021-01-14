@@ -37,6 +37,7 @@ const Auth = () => {
     }
     await authService.signInWithPopup(provider);
   };
+
   return (
     <div className={styles.authContainer}>
       <form onSubmit={onSubmit} className={styles.container}>
@@ -62,17 +63,23 @@ const Auth = () => {
       </form>
       <div className={styles.buttonContainer}>
         <button
-          onClick={() => history.push("/authRequest")}
-          className={styles.auth_button}
-        >
-          회원가입
-        </button>
-        <button
           name="google"
           onClick={onSocialClick}
           className={styles.google_button}
         >
           구글로 로그인
+        </button>
+        <button
+          onClick={() => history.push("/authRequest")}
+          className={styles.authrequest}
+        >
+          회원가입
+        </button>
+        <button
+          onClick={() => history.push("/resetPassword")}
+          className={styles.forgotpassword}
+        >
+          비밀번호를 잊으셨습니까?
         </button>
       </div>
     </div>
