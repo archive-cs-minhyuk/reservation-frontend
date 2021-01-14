@@ -102,7 +102,7 @@ const AuthRequest = ({ userObj }) => {
         />
         <input
           type="submit"
-          value="계정 생성하기"
+          value="Create Account"
           className={styles.auth_button}
         />
       </form>

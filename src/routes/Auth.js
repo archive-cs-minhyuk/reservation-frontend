@@ -44,7 +44,7 @@ const Auth = () => {
         <input
           name="email"
           type="email"
-          placeholder="이메일을 입력하세요"
+          placeholder="E-mail"
           required
           className={styles.authInput}
           value={email}
@@ -53,34 +53,34 @@ const Auth = () => {
         <input
           name="password"
           type="password"
-          placeholder="비밀번호를 입력하세요"
+          placeholder="password"
           required
           className={styles.authInput}
           value={password}
           onChange={onChange}
         />
-        <input type="submit" value="로그인" className={styles.authSubmit} />
+        <input type="submit" value="Sign In" className={styles.authSubmit} />
       </form>
+      <button
+        name="google"
+        onClick={onSocialClick}
+        className={styles.google_button}
+      >
+        Sign In by Google
+      </button>
       <div className={styles.buttonContainer}>
-        <button
-          name="google"
-          onClick={onSocialClick}
-          className={styles.google_button}
-        >
-          구글로 로그인
-        </button>
-        <button
+        <div
           onClick={() => history.push("/authRequest")}
           className={styles.authrequest}
         >
-          회원가입
-        </button>
-        <button
+          Create Account
+        </div>
+        <div
           onClick={() => history.push("/resetPassword")}
           className={styles.forgotpassword}
         >
-          비밀번호를 잊으셨습니까?
-        </button>
+          Forgot your password?
+        </div>
       </div>
     </div>
   );

@@ -22,10 +22,10 @@ const ResetPassword = () => {
           console.log("비밀번호 reset");
         })
         .catch(function (error) {
-          console.log(error.message);
+          alert(error.message);
         });
     } else {
-      alert("이메일이 맞지 않습니다");
+      alert("이메일을 다시 입력해주세요.");
     }
   };
   return (
