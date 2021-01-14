@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/reservation-frontend/static/css/main.10fefec7.chunk.css",
-    "main.js": "/reservation-frontend/static/js/main.8fde2da4.chunk.js",
-    "main.js.map": "/reservation-frontend/static/js/main.8fde2da4.chunk.js.map",
+    "main.css": "/reservation-frontend/static/css/main.65278b9d.chunk.css",
+    "main.js": "/reservation-frontend/static/js/main.919e173b.chunk.js",
+    "main.js.map": "/reservation-frontend/static/js/main.919e173b.chunk.js.map",
     "runtime-main.js": "/reservation-frontend/static/js/runtime-main.366334f4.js",
     "runtime-main.js.map": "/reservation-frontend/static/js/runtime-main.366334f4.js.map",
-    "static/js/2.e9d10f3e.chunk.js": "/reservation-frontend/static/js/2.e9d10f3e.chunk.js",
-    "static/js/2.e9d10f3e.chunk.js.map": "/reservation-frontend/static/js/2.e9d10f3e.chunk.js.map",
+    "static/js/2.ddd84bb4.chunk.js": "/reservation-frontend/static/js/2.ddd84bb4.chunk.js",
+    "static/js/2.ddd84bb4.chunk.js.map": "/reservation-frontend/static/js/2.ddd84bb4.chunk.js.map",
     "index.html": "/reservation-frontend/index.html",
-    "static/css/main.10fefec7.chunk.css.map": "/reservation-frontend/static/css/main.10fefec7.chunk.css.map",
-    "static/js/2.e9d10f3e.chunk.js.LICENSE.txt": "/reservation-frontend/static/js/2.e9d10f3e.chunk.js.LICENSE.txt"
+    "static/css/main.65278b9d.chunk.css.map": "/reservation-frontend/static/css/main.65278b9d.chunk.css.map",
+    "static/js/2.ddd84bb4.chunk.js.LICENSE.txt": "/reservation-frontend/static/js/2.ddd84bb4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.366334f4.js",
-    "static/js/2.e9d10f3e.chunk.js",
-    "static/css/main.10fefec7.chunk.css",
-    "static/js/main.8fde2da4.chunk.js"
+    "static/js/2.ddd84bb4.chunk.js",
+    "static/css/main.65278b9d.chunk.css",
+    "static/js/main.919e173b.chunk.js"
   ]
 }
