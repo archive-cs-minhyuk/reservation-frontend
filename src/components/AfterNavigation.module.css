@@ -1,0 +1,50 @@
+button:hover {
+  opacity: 0.8;
+}
+
+header {
+  grid-row: 1;
+  background-color: white;
+  padding: 30px 40px;
+  display: flex;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+header > .home,
+header > .profile,
+header > .logout {
+  height: 40px;
+  line-height: 40px;
+  font-size: 12px;
+  border: 1px solid #e5e5e5;
+  font-weight: bold;
+  padding: 0px 45px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 0;
+  outline: 0;
+}
+
+header > .profile {
+  margin-left: 15px;
+  color: #989898;
+  transition: all 0.2s;
+  float: right;
+}
+
+header > .logout {
+  margin-left: 15px;
+  color: #989898;
+  transition: all 0.2s;
+  float: right;
+}
+
+header > .home {
+  margin-left: 15px;
+  color: white;
+  background-color: #989898;
+}
+
+header > .logout :hover {
+  opacity: 0.8;
+}

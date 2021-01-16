@@ -4,10 +4,6 @@ import { useHistory } from "react-router-dom";
 
 const Profile = ({ userObj }) => {
   const history = useHistory();
-  const onLogOutClick = () => {
-    authService.signOut();
-    history.push("/");
-  };
   const onResetClick = async () => {
     if (userObj.email !== "") {
       await authService
@@ -50,7 +46,6 @@ const Profile = ({ userObj }) => {
           <span>{userObj.metadata.creationTime.slice(0, 17)}</span>
         </li>
       </ul>
-      <button onClick={onLogOutClick}>Log Out</button>
       <button onClick={onResetClick}>Reset password</button>
     </>
   );

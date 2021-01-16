@@ -15,7 +15,7 @@ import AfterNavigation from "./AfterNavigation";
 const AppRouter = ({ isLoggedIn, userObj }) => {
   return (
     <Router>
-      {isLoggedIn && <AfterNavigation />}
+      {isLoggedIn && <AfterNavigation userObj={userObj} />}
       {isLoggedIn ? (
         <Switch>
           <Route path="/home" component={Home} exact />
