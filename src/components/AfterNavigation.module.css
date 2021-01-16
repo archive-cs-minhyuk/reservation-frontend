@@ -29,14 +29,12 @@ header > .profile {
   margin-left: 15px;
   color: #989898;
   transition: all 0.2s;
-  float: right;
 }
 
 header > .logout {
   margin-left: 15px;
   color: #989898;
-  transition: all 0.2s;
-  float: right;
+  transition: all 0;
 }
 
 header > .home {
