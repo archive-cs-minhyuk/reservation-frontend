@@ -14,7 +14,6 @@ const ResetPassword = () => {
   };
   const onSubmit = async (event) => {
     event.preventDefault();
-
     if (email !== "") {
       await authService
         .sendPasswordResetEmail(email)

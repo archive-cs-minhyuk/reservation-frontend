@@ -8,6 +8,20 @@ const Profile = ({ userObj }) => {
     authService.signOut();
     history.push("/");
   };
+  const onResetClick = async () => {
+    if (userObj.email !== "") {
+      await authService
+        .sendPasswordResetEmail(userObj.email)
+        .then(function () {
+          alert("비밀번호 재설정 메일이 전송되었습니다.");
+        })
+        .catch(function (error) {
+          alert(error.message);
+        });
+    } else {
+      alert("이메일을 다시 입력해주세요.");
+    }
+  };
   const phoneNumber = () => {
     if (userObj.photoURL.slice(0, 3) !== "010") {
       //google 로그인 거르기 위한 방법... 나중에 안되면 고칠것
@@ -37,6 +51,7 @@ const Profile = ({ userObj }) => {
         </li>
       </ul>
       <button onClick={onLogOutClick}>Log Out</button>
+      <button onClick={onResetClick}>Reset password</button>
     </>
   );
 };
