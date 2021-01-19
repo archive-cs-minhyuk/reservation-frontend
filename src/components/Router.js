@@ -18,7 +18,11 @@ const AppRouter = ({ isLoggedIn, userObj }) => {
       {isLoggedIn && <AfterNavigation userObj={userObj} />}
       {isLoggedIn ? (
         <Switch>
-          <Route path="/home" component={Home} exact />
+          <Route
+            path="/home"
+            component={() => <Home userObj={userObj} />}
+            exact
+          />
           <Route
             path="/profile"
             component={() => <Profile userObj={userObj} />}
